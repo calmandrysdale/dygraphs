@@ -7,13 +7,16 @@
 // event will be called in reverse order.
 //
 // This is most relevant for plugins which register a layout event, e.g.
-// Axes, Legend and ChartLabels.
+// Axes, Legend and ChartLabels.Dygraph.Plugins.RangeSelectorVerticalx, // CALMAN
 
 Dygraph.PLUGINS.push(
   Dygraph.Plugins.Legend,
   Dygraph.Plugins.Axes,
   Dygraph.Plugins.RangeSelector, // Has to be before ChartLabels so that its callbacks are called after ChartLabels' callbacks.
+  Dygraph.Plugins.RangeSelectorVertical, // CALMAN
+  Dygraph.Plugins.RangeSelectorT, // CALMAN
   Dygraph.Plugins.ChartLabels,
   Dygraph.Plugins.Annotations,
   Dygraph.Plugins.Grid
+  
 );

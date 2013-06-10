@@ -35,6 +35,8 @@
     "plugins/grid.js",
     "plugins/legend.js",
     "plugins/range-selector.js",
+    "plugins/range-selector-total.js",
+    "plugins/range-selector-vertical.js", //CALMAN
     "dygraph-plugin-install.js",
     "dygraph-options-reference.js"  // Shouldn't be included in generate-combined.sh
   ];

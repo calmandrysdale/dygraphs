@@ -23,13 +23,7 @@ Dygraph.OPTIONS_REFERENCE =  // <JSON>
     "default": "false",
     "labels": ["Data Line display"],
     "type": "boolean",
-    "description": "If set, stack series on top of one another rather than drawing them independently. The first series specified in the input data will wind up on top of the chart and the last will be on bottom. NaN values are drawn as white areas without a line on top, see stackedGraphNaNFill for details."
-  },
-  "stackedGraphNaNFill": {
-    "default": "all",
-    "labels": ["Data Line display"],
-    "type": "string",
-    "description": "Controls handling of NaN values inside a stacked graph. NaN values are interpolated/extended for stacking purposes, but the actual point value remains NaN in the legend display. Valid option values are \"all\" (interpolate internally, repeat leftmost and rightmost value as needed), \"inside\" (interpolate internally only, use zero outside leftmost and rightmost value), and \"none\" (treat NaN as zero everywhere)."
+    "description": "If set, stack series on top of one another rather than drawing them independently. The first series specified in the input data will wind up on top of the chart and the last will be on bottom."
   },
   "pointSize": {
     "default": "1",
@@ -416,7 +410,7 @@ Dygraph.OPTIONS_REFERENCE =  // <JSON>
     "default": "rgb(128,128,128)",
     "labels": ["Grid"],
     "type": "red, blue",
-    "description": "The color of the gridlines. This may be set on a per-axis basis to define each axis' grid separately."
+    "description": "The color of the gridlines."
   },
   "visibility": {
     "default": "[true, true, ...]",
@@ -656,27 +650,15 @@ Dygraph.OPTIONS_REFERENCE =  // <JSON>
   },
   "drawXGrid": {
     "default": "true",
-    "labels": ["Grid","Deprecated"],
+    "labels": ["Grid"],
     "type": "boolean",
-    "description" : "Use the per-axis option drawGrid instead. Whether to display vertical gridlines under the chart."
+    "description" : "Whether to display vertical gridlines under the chart."
   },
   "drawYGrid": {
     "default": "true",
-    "labels": ["Grid","Deprecated"],
-    "type": "boolean",
-    "description" : "Use the per-axis option drawGrid instead. Whether to display horizontal gridlines under the chart."
-  },
-  "drawGrid": {
-    "default": "true for x and y, false for y2",
     "labels": ["Grid"],
     "type": "boolean",
-    "description" : "Whether to display gridlines in the chart. This may be set on a per-axis basis to define the visibility of each axis' grid separately."
-  },
-  "independentTicks": {
-    "default": "true for y, false for y2",
-    "labels": ["Axis display", "Grid"],
-    "type": "boolean",
-    "description" : "Only valid for y and y2, has no effect on x: This option defines whether the y axes should align their ticks or if they should be independent. Possible combinations: 1.) y=true, y2=false (default): y is the primary axis and the y2 ticks are aligned to the the ones of y. (only 1 grid) 2.) y=false, y2=true: y2 is the primary axis and the y ticks are aligned to the the ones of y2. (only 1 grid) 3.) y=true, y2=true: Both axis are independent and have their own ticks. (2 grids) 4.) y=false, y2=false: Invalid configuration causes an error."
+    "description" : "Whether to display horizontal gridlines under the chart."
   },
   "drawXAxis": {
     "default": "true",
@@ -694,7 +676,7 @@ Dygraph.OPTIONS_REFERENCE =  // <JSON>
     "default": "0.3",
     "labels": ["Grid"],
     "type": "float",
-    "description" : "Thickness (in pixels) of the gridlines drawn under the chart. The vertical/horizontal gridlines can be turned off entirely by using the drawXGrid and drawYGrid options. This may be set on a per-axis basis to define each axis' grid separately."
+    "description" : "Thickness (in pixels) of the gridlines drawn under the chart. The vertical/horizontal gridlines can be turned off entirely by using the drawXGrid and drawYGrid options."
   },
   "axisLineWidth": {
     "default": "0.3",
@@ -780,6 +762,60 @@ Dygraph.OPTIONS_REFERENCE =  // <JSON>
     "type": "string",
     "description": "The range selector mini plot fill color. This can be of the form \"#AABBCC\" or \"rgb(255,100,200)\" or \"yellow\". You can also specify null or \"\" to turn off fill."
   },
+  "showRangeSelectorVertical": {
+	"default": "false",
+	"labels": ["Interactive Elements"],
+	"type": "boolean",
+	"description": "Show or hide the range selector vertical widget."
+  },
+  "rangeSelectorVerticalWidth": {
+	"default": "40",
+	"labels": ["Interactive Elements"],
+	"type": "integer",
+	"description": "Width, in pixels, of the range selector vertical widget. This option can only be specified at Dygraph creation time."
+  },
+  "rangeSelectorVerticalPlotStrokeColor": {
+	"default": "#808FAB",
+	"labels": ["Interactive Elements"],
+	"type": "string",
+	"description": "The range selector vertical mini plot stroke color. This can be of the form \"#AABBCC\" or \"rgb(255,100,200)\" or \"yellow\". You can also specify null or \"\" to turn off stroke."
+  },
+  "rangeSelectorVerticalPlotFillColor": {
+	"default": "#A7B1C4",
+	"labels": ["Interactive Elements"],
+	"type": "string",
+	"description": "The range selector vertical mini plot fill color. This can be of the form \"#AABBCC\" or \"rgb(255,100,200)\" or \"yellow\". You can also specify null or \"\" to turn off fill."
+  },
+  "showRangeSelectorT": {
+	"default": "false",
+	"labels": ["Interactive Elements"],
+	"type": "boolean",
+	"description": "Show or hide the range selector Total widget."
+  },
+  "rangeSelectorTHeight": {
+	"default": "40",
+	"labels": ["Interactive Elements"],
+	"type": "integer",
+	"description": "Width, in pixels, of the range selector total widget. This option can only be specified at Dygraph creation time."
+  },
+  "rangeSelectorTWidth": {
+		"default": "40",
+		"labels": ["Interactive Elements"],
+		"type": "integer",
+		"description": "Width, in pixels, of the range selector total widget. This option can only be specified at Dygraph creation time."
+  },
+  "rangeSelectorTPlotStrokeColor": {
+	"default": "#808FAB",
+	"labels": ["Interactive Elements"],
+	"type": "string",
+	"description": "The range selector total mini plot stroke color. This can be of the form \"#AABBCC\" or \"rgb(255,100,200)\" or \"yellow\". You can also specify null or \"\" to turn off stroke."
+  },
+  "rangeSelectorTPlotFillColor": {
+	"default": "#A7B1C4",
+	"labels": ["Interactive Elements"],
+	"type": "string",
+	"description": "The range selector total mini plot fill color. This can be of the form \"#AABBCC\" or \"rgb(255,100,200)\" or \"yellow\". You can also specify null or \"\" to turn off fill."
+  }, 
   "animatedZooms": {
     "default": "false",
     "labels": ["Interactive Elements"],
